@@ -1,0 +1,9 @@
+{
+  "name": "webcam-robot",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "app",
+    "server"
+  ]
+}
