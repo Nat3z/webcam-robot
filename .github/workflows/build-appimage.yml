@@ -1,0 +1,32 @@
+name: Build AppImage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        working-directory: app
+        run: bun install
+
+      - name: Build AppImage
+        working-directory: app
+        run: bun run build:linux
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: webcam-robot-appimage
+          path: app/dist/*.AppImage
+          if-no-files-found: error
