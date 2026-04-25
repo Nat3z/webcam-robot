@@ -7,9 +7,11 @@
   },
   "dependencies": {
     "@inquirer/prompts": "^8.4.2",
-    "elysia": "latest"
+    "elysia": "latest",
+    "werift": "^0.22.9"
   },
   "devDependencies": {
+    "@types/node": "^25.6.0",
     "bun-types": "latest"
   },
   "module": "src/index.js"
